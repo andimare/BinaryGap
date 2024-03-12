@@ -44,7 +44,7 @@ class Solution{
 
 int main(){
 	fstream file;
-	Solution obj[4];
+	Solution obj[5];
 	int num, i = 0;
 	
 	
