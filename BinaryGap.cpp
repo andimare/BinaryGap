@@ -1,12 +1,14 @@
 #include <iostream>
+#include <fstream>
 using namespace std; 
 
 class Solution{
+	private:
+		int max_num = 0, dummy = 0;
+		bool state = false;
+		int mod = 0;
 	public:
 	 int solution(int N){
-		static int max_num = 0, dummy = 0;
-		static bool state = false;
-		static int mod = 0;
 		
 		while(!state){		
 			mod = N % 2;
@@ -41,13 +43,28 @@ class Solution{
 };
 
 int main(){
-	Solution obj;
-	int num;
+	fstream file;
+	Solution obj[4];
+	int num, i = 0;
 	
+	
+	file.open("text-input.txt", ios::in );
+	
+	if(file.is_open())cout<<"Its open"<<endl;
+	
+	while(file.good()){
+		int num;
+		
+		//getline(cin, num);
+		file>>num;
+		
+		cout<<"The binary gap number in "<<num<<" is : "<<obj[i].solution(num)<<endl;
+		++i;
+	}
 	//console out
-	cout<<"Enter the a number: ";
-	cin>>num;
+	//cout<<"Enter the a number: ";
+	//cin>>num;
 	
-	cout<<endl;
-	cout<<"The solution num is :"<<obj.solution(num)<<endl;
+	//cout<<endl;
+	//cout<<"The solution num is : "<<obj.solution(num)<<endl;
 }
